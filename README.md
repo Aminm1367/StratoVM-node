@@ -7,56 +7,47 @@ As the world of virtualization continues to evolve, StratoVM has emerged as a po
 1. Prerequisites
 Before diving into the node setup, ensure you have the following:
 
-Operating System: StratoVM nodes typically run on Linux distributions. For this guide, we'll use Ubuntu 22.04 LTS.
+Operating System: StratoVM nodes typically run on Linux distributions. 
+For this guide, we'll use Ubuntu 22.04 LTS.
 Hardware Requirements: Ensure your hardware meets the minimum requirements specified by StratoVM.
-Root or Sudo Access: You need administrative privileges to install and configure the node.
+Root or Sudo Access:
+You need administrative privileges to install and configure the node.
 2. Install Dependencies
 First, update your package list and install necessary dependencies:
 
-bash
-Copy code
+
 sudo apt update
 sudo apt install -y curl wget gnupg
+
 3. Add StratoVM Repository
 To install StratoVM, you need to add its repository to your system. Import the StratoVM GPG key:
 
-bash
-Copy code
-curl -fsSL https://repo.stratovm.com/gpg.key | sudo apt-key add -
-Add the StratoVM repository to your sources list:
 
-bash
-Copy code
+curl -fsSL https://repo.stratovm.com/gpg.key | sudo apt-key add -
+
+
+Add the StratoVM repository to your sources list:
 echo "deb [arch=amd64] https://repo.stratovm.com/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/stratovm.list
+
 4. Install StratoVM Node Software
 Update the package list and install StratoVM:
-
-bash
-Copy code
 sudo apt update
 sudo apt install -y stratovm-node
+
 5. Configure StratoVM Node
 Once installed, you need to configure the node. The configuration file is located at /etc/stratovm/node.conf. Open this file in a text editor:
-
-bash
-Copy code
 sudo nano /etc/stratovm/node.conf
+
 You’ll need to set up the following configurations:
 
 Node Name: Assign a unique name to your node.
-
-plaintext
-Copy code
 NODE_NAME=my-stratovm-node
-Server Address: Set the address of the StratoVM server.
 
-plaintext
-Copy code
+
+Server Address: Set the address of the StratoVM server.
 SERVER_ADDRESS=https://server.stratovm.com
 API Key: Enter your StratoVM API key, which you can obtain from the StratoVM dashboard.
 
-plaintext
-Copy code
 API_KEY=your-api-key-here
 Save and exit the file (Ctrl+X, then Y, and Enter).
 
